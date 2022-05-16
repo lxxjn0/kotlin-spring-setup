@@ -7,7 +7,11 @@ pluginManagement {
 }
 
 include(
+    ":sandbox-batch",
+    ":sandbox-common",
     ":sandbox-core",
-    ":sandbox-feign-module",
     ":sandbox-web",
+    ":modules:sandbox-aws-s3",
+    ":modules:sandbox-openfeign",
+    ":modules:sandbox-webclient",
 )

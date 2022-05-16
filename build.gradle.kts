@@ -7,10 +7,17 @@ plugins {
     kotlin(Plugins.SPRING) version Versions.KOTLIN apply false
     kotlin(Plugins.JPA) version Versions.KOTLIN apply false
 
+    id(Plugins.KSP) version Versions.KSP
     id(Plugins.SPRING_BOOT) version Versions.SPRING_BOOT apply false
     id(Plugins.SPRING_DEPENDENCY_MANAGEMENT) version Versions.SPRING_DEPENDENCY_MANAGEMENT apply false
     id(Plugins.KTLINT) version Versions.KTLINT
     id(Plugins.KTLINT_IDEA) version Versions.KTLINT
+}
+
+buildscript {
+    dependencies {
+        classpath(kotlin(Plugins.GRADLE_PLUGIN, Versions.KOTLIN))
+    }
 }
 
 java {
@@ -22,7 +29,6 @@ allprojects {
     apply {
         plugin<JavaLibraryPlugin>()
         plugin<KotlinPlatformJvmPlugin>()
-        plugin(Plugins.IDEA)
     }
 
     repositories {
@@ -37,6 +43,12 @@ allprojects {
 }
 
 subprojects {
+    apply {
+        plugin<JavaLibraryPlugin>()
+        plugin<KotlinPlatformJvmPlugin>()
+        plugin(Plugins.KSP)
+    }
+
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs = listOf("-Xjsr305=strict")
@@ -51,23 +63,22 @@ subprojects {
 
 configure(Projects.SPRING_PROJECTS.map { project(it) }) {
     apply {
-        plugin<JavaLibraryPlugin>()
-        plugin<KotlinPlatformJvmPlugin>()
         plugin(Plugins.SPRING_BOOT)
         plugin(Plugins.SPRING_DEPENDENCY_MANAGEMENT)
-        plugin(Plugins.IDEA)
     }
 
     dependencies {
         implementation(Dependencies.SpringBoot.STARTER_WEB)
         implementation(Dependencies.SpringBoot.STARTER_DATA_JPA)
+        implementation(Dependencies.SpringBoot.STARTER_LOG4J2)
 
         implementation(Dependencies.Kotlin.REFLECT)
-//        implementation(Dependencies.Kotlin.STDLIB_JDK8)
+        implementation(Dependencies.Kotlin.STDLIB_JDK8)
+        implementation(Dependencies.Kotlin.KSP)
 
         implementation(Dependencies.JACKSON_MODULE_KOTLIN)
 
-        annotationProcessor(Dependencies.SpringBoot.CONFIGURATION_PROCESSOR)
+        ksp(Dependencies.SpringBoot.CONFIGURATION_PROCESSOR)
 
         testImplementation(Dependencies.SpringBoot.STARTER_TEST)
 

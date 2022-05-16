@@ -14,7 +14,7 @@ class UserService(private val repository: UserRepository) {
             ?: throw IllegalArgumentException("${id}에 해당하는 유저가 존재하지 않습니다.")
 
     fun save(request: UserCreateRequest): User {
-        return repository.save(request.toUserEntity())
+        return repository.save(request.toUser())
             .toUser()
     }
 }
