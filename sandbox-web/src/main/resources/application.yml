@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    include:
+      - db
+      - common
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: db
+
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=MYSQL
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: common
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+---

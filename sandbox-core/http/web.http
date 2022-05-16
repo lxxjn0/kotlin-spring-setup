@@ -1,0 +1,10 @@
+###
+POST http://localhost:8080/users?name=hello&age=20
+
+Accept: application/json
+Content-Type: application/json
+
+
+###
+GET http://localhost:8080/users/1
+
