@@ -23,6 +23,7 @@ object Dependencies {
         const val STARTER_WEB = "org.springframework.boot:spring-boot-starter-web"
         const val STARTER_DATA_JPA = "org.springframework.boot:spring-boot-starter-data-jpa"
         const val STARTER_LOG4J2 = "org.springframework.boot:spring-boot-starter-log4j2"
+        const val STARTER_BATCH = "org.springframework.boot:spring-boot-starter-batch"
         const val CONFIGURATION_PROCESSOR = "org.springframework.boot:spring-boot-configuration-processor"
         const val STARTER_TEST = "org.springframework.boot:spring-boot-starter-test"
     }
@@ -48,11 +49,12 @@ object Projects {
 
     object Modules {
         const val SANDBOX_AWS_S3 = ":modules:sandbox-aws-s3"
-        const val SANDBOX_OPENFEIGN = ":modules:sandbox-openfeign"
-        const val SANDBOX_WEBCLIENT = ":modules:sandbox-webclient"
+        const val SANDBOX_OPENFEIGN = ":modules:sandbox-open-feign"
+        const val SANDBOX_WEBCLIENT = ":modules:sandbox-web-client"
     }
 
     val SPRING_PROJECTS = listOf(
+        SANDBOX_BATCH,
         SANDBOX_COMMON,
         SANDBOX_CORE,
         SANDBOX_WEB,

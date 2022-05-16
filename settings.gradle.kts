@@ -12,6 +12,6 @@ include(
     ":sandbox-core",
     ":sandbox-web",
     ":modules:sandbox-aws-s3",
-    ":modules:sandbox-openfeign",
-    ":modules:sandbox-webclient",
+    ":modules:sandbox-open-feign",
+    ":modules:sandbox-web-client",
 )

@@ -85,6 +85,12 @@ configure(Projects.SPRING_PROJECTS.map { project(it) }) {
         runtimeOnly(Dependencies.Database.H2)
     }
 
+    configurations {
+        all {
+            exclude(Plugins.SPRING_BOOT, "spring-boot-starter-logging")
+        }
+    }
+
     tasks.getByName<Jar>("jar") {
         enabled = false
     }

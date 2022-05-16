@@ -1,0 +1,12 @@
+### create user
+POST {{host}}/users
+Content-Type: application/json
+
+{
+    "name": "user_01",
+    "age": 20
+}
+
+
+### show user
+GET {{host}}/users/1
