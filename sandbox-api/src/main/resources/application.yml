@@ -42,7 +42,10 @@ spring:
       enabled: true
 
   datasource:
-    url: jdbc:mariadb://localhost:3306/web
+    url: jdbc:mariadb://localhost:3307/api
 
   jpa:
     generate-ddl: true
+
+server:
+  port: 8081

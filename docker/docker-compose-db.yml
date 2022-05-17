@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  web-db:
+    image: mariadb:10.4
+    container_name: web-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: web
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: 1234
+      TZ: Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
+  api-db:
+    image: mariadb:10.4
+    container_name: api-db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: api
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: 1234
+      TZ: Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
+  batch-db:
+    image: mariadb:10.4
+    container_name: batch-db
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_DATABASE: batch
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: 1234
+      TZ: Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci

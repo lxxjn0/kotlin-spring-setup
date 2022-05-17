@@ -7,6 +7,7 @@ pluginManagement {
 }
 
 include(
+    ":sandbox-api",
     ":sandbox-batch",
     ":sandbox-common",
     ":sandbox-core",

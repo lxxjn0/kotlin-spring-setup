@@ -20,12 +20,16 @@ object Versions {
 
 object Dependencies {
     object SpringBoot {
-        const val STARTER_WEB = "org.springframework.boot:spring-boot-starter-web"
-        const val STARTER_DATA_JPA = "org.springframework.boot:spring-boot-starter-data-jpa"
-        const val STARTER_LOG4J2 = "org.springframework.boot:spring-boot-starter-log4j2"
-        const val STARTER_BATCH = "org.springframework.boot:spring-boot-starter-batch"
+        object Starter {
+            const val WEB = "org.springframework.boot:spring-boot-starter-web"
+            const val DATA_JPA = "org.springframework.boot:spring-boot-starter-data-jpa"
+            const val LOG4J2 = "org.springframework.boot:spring-boot-starter-log4j2"
+            const val BATCH = "org.springframework.boot:spring-boot-starter-batch"
+            const val TEST = "org.springframework.boot:spring-boot-starter-test"
+            const val VALIDATION = "org.springframework.boot:spring-boot-starter-validation"
+        }
+
         const val CONFIGURATION_PROCESSOR = "org.springframework.boot:spring-boot-configuration-processor"
-        const val STARTER_TEST = "org.springframework.boot:spring-boot-starter-test"
     }
 
     object Kotlin {
@@ -36,12 +40,15 @@ object Dependencies {
 
     object Database {
         const val H2 = "com.h2database:h2"
+        const val MYSQL = "mysql:mysql-connector-java"
+        const val MARIADB = "org.mariadb.jdbc:mariadb-java-client"
     }
 
     const val JACKSON_MODULE_KOTLIN = "com.fasterxml.jackson.module:jackson-module-kotlin"
 }
 
 object Projects {
+    const val SANDBOX_API = ":sandbox-api"
     const val SANDBOX_BATCH = ":sandbox-batch"
     const val SANDBOX_COMMON = ":sandbox-common"
     const val SANDBOX_CORE = ":sandbox-core"
@@ -54,6 +61,7 @@ object Projects {
     }
 
     val SPRING_PROJECTS = listOf(
+        SANDBOX_API,
         SANDBOX_BATCH,
         SANDBOX_COMMON,
         SANDBOX_CORE,

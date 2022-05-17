@@ -1,5 +1,5 @@
 ### create user
-POST {{host}}/users
+POST {{web-server-host}}/users
 Content-Type: application/json
 
 {
@@ -9,4 +9,4 @@ Content-Type: application/json
 
 
 ### show user
-GET {{host}}/users/1
+GET {{web-server-host}}/users/1

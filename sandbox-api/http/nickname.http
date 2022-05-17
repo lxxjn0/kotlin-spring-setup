@@ -1,0 +1,12 @@
+### create nickname
+POST {{api-server-host}}/nicknames
+Content-Type: application/json
+
+{
+    "userName": "user_01",
+    "nickname": "nickname_01"
+}
+
+
+### show nickname
+GET {{api-server-host}}/nicknames?userName=user_01

@@ -63,26 +63,26 @@ subprojects {
 
 configure(Projects.SPRING_PROJECTS.map { project(it) }) {
     apply {
+        plugin(Plugins.KSP)
         plugin(Plugins.SPRING_BOOT)
         plugin(Plugins.SPRING_DEPENDENCY_MANAGEMENT)
     }
 
     dependencies {
-        implementation(Dependencies.SpringBoot.STARTER_WEB)
-        implementation(Dependencies.SpringBoot.STARTER_DATA_JPA)
-        implementation(Dependencies.SpringBoot.STARTER_LOG4J2)
+        implementation(Dependencies.SpringBoot.Starter.WEB)
+        implementation(Dependencies.SpringBoot.Starter.DATA_JPA)
+        implementation(Dependencies.SpringBoot.Starter.LOG4J2)
 
         implementation(Dependencies.Kotlin.REFLECT)
         implementation(Dependencies.Kotlin.STDLIB_JDK8)
         implementation(Dependencies.Kotlin.KSP)
 
         implementation(Dependencies.JACKSON_MODULE_KOTLIN)
+        implementation(Dependencies.Database.MARIADB)
 
         ksp(Dependencies.SpringBoot.CONFIGURATION_PROCESSOR)
 
-        testImplementation(Dependencies.SpringBoot.STARTER_TEST)
-
-        runtimeOnly(Dependencies.Database.H2)
+        testImplementation(Dependencies.SpringBoot.Starter.TEST)
     }
 
     configurations {

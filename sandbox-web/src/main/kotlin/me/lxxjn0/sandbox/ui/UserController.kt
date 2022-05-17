@@ -12,7 +12,6 @@ import java.net.URI
 @Slf4j
 @RestController
 class UserController(private val userService: UserService) {
-
     @GetMapping(value = ["/users/{id}"])
     @ResponseStatus(HttpStatus.OK)
     fun showById(@PathVariable id: Long) =

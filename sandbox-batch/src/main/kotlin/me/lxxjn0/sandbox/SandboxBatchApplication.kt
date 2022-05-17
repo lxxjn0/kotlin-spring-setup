@@ -7,7 +7,7 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Import
 import kotlin.system.exitProcess
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["me.lxxjn0.sandbox"])
 @Import(SandboxBatchConfiguration::class)
 class SandboxBatchApplication
 
