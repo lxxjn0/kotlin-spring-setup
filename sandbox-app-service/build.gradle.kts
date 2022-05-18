@@ -16,6 +16,6 @@ tasks.getByName<BootJar>("bootJar") {
 }
 
 dependencies {
-    implementation(project(Projects.SANDBOX_CORE))
-    implementation(project(Projects.SANDBOX_COMMON))
+    implementation(project(Projects.DOMAIN))
+    implementation(project(Projects.CORE_WEB))
 }

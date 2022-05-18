@@ -3,7 +3,7 @@ package me.lxxjn0.sandbox.domain
 import javax.persistence.*
 
 @Entity
-@Table(name = "nicknames")
+@Table(name = "nickname")
 class Nickname(
     userName: String,
     nickname: String,

@@ -48,26 +48,31 @@ object Dependencies {
 }
 
 object Projects {
-    const val SANDBOX_API = ":sandbox-api"
-    const val SANDBOX_BATCH = ":sandbox-batch"
-    const val SANDBOX_COMMON = ":sandbox-common"
-    const val SANDBOX_CORE = ":sandbox-core"
-    const val SANDBOX_WEB = ":sandbox-web"
+    const val APP_API = ":sandbox-app-api"
+    const val APP_BATCH = ":sandbox-app-batch"
+    const val APP_SERVICE = ":sandbox-app-service"
+    const val CORE_WEB = ":sandbox-core-web"
+    const val DOMAIN = ":sandbox-domain"
 
     object Modules {
         const val SANDBOX_AWS_S3 = ":modules:sandbox-aws-s3"
-        const val SANDBOX_OPENFEIGN = ":modules:sandbox-open-feign"
-        const val SANDBOX_WEBCLIENT = ":modules:sandbox-web-client"
+        const val SANDBOX_OPEN_FEIGN = ":modules:sandbox-open-feign"
+        const val SANDBOX_WEB_CLIENT = ":modules:sandbox-web-client"
+    }
+
+    object Clients {
+        const val SANDBOX_API = ":clients:sandbox-api-client"
     }
 
     val SPRING_PROJECTS = listOf(
-        SANDBOX_API,
-        SANDBOX_BATCH,
-        SANDBOX_COMMON,
-        SANDBOX_CORE,
-        SANDBOX_WEB,
+        APP_API,
+        APP_BATCH,
+        APP_SERVICE,
+        CORE_WEB,
+        DOMAIN,
         Modules.SANDBOX_AWS_S3,
-        Modules.SANDBOX_OPENFEIGN,
-        Modules.SANDBOX_WEBCLIENT,
+        Modules.SANDBOX_OPEN_FEIGN,
+        Modules.SANDBOX_WEB_CLIENT,
+        Clients.SANDBOX_API,
     )
 }
